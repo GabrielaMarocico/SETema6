@@ -19,8 +19,8 @@ public class ViewWeather extends JFrame {
 	JLabel degreeIcon = new JLabel();
 	JLabel labelWind = new JLabel("Wind");
 	JLabel labelWindValue = new JLabel();
-	JLabel labelUmidity = new JLabel("Umidity");
-	JLabel labelUmidityValue = new JLabel();
+	JLabel labelHumidity = new JLabel("Humidity");
+	JLabel labelHumidityValue = new JLabel();
 	JLabel labelLocation = new JLabel("Your location :");
 	JLabel labelLocationValue = new JLabel();
 	JButton buttonReset = new JButton("Reset");
@@ -28,11 +28,15 @@ public class ViewWeather extends JFrame {
 	Font maxFont = new Font("Courrier", Font.BOLD, 30);
 	Font minFont = new Font("Courier", Font.ITALIC, 30);
 
+	/**
+	 * The constructor which creates the user interface, the panel which will be
+	 * displayed
+	 */
 	public ViewWeather() {
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(750, 500);
-
+		this.setTitle("Weather information");
 		this.setVisible(true);
 
 		this.getContentPane().add(panel, BorderLayout.WEST);
@@ -51,7 +55,7 @@ public class ViewWeather extends JFrame {
 
 		// showing the sign of Celsius degree
 		ImageIcon image = new ImageIcon(
-				"C:/Users/gby/se_projects/SETema6/pictures/degree.jpg");
+				"C:/Users/gby/Git/SETema6/SETema6/pictures/degree.jpg");
 
 		if (image == null)
 			System.out.println("eroare la incarcarea imaginii");
@@ -76,18 +80,18 @@ public class ViewWeather extends JFrame {
 		grid.insets = new Insets(-30, -570, 0, 0);
 		panel.add(labelWindValue, grid);
 
-		labelUmidity.setFont(maxFont);
+		labelHumidity.setFont(maxFont);
 		grid.gridx = 0;
 		grid.gridy = 0;
 		grid.insets = new Insets(-180, 530, 0, 0);
-		panel.add(labelUmidity, grid);
+		panel.add(labelHumidity, grid);
 
 		// showinf the values (%) of umidity
-		labelUmidityValue.setFont(minFont);
+		labelHumidityValue.setFont(minFont);
 		grid.gridx = 1;
 		grid.gridy = 0;
 		grid.insets = new Insets(-30, -135, 0, 0);
-		panel.add(labelUmidityValue, grid);
+		panel.add(labelHumidityValue, grid);
 
 		// labels for Location
 		labelLocation.setFont(maxFont);
@@ -99,7 +103,7 @@ public class ViewWeather extends JFrame {
 		labelLocationValue.setFont(minFont);
 		grid.gridx = 1;
 		grid.gridy = 0;
-		grid.insets = new Insets(180, -370, 0, 0);
+		grid.insets = new Insets(180, -345, 0, 0);
 		panel.add(labelLocationValue, grid);
 
 		// RESET button for updating the information (temperature,wind and
@@ -115,19 +119,42 @@ public class ViewWeather extends JFrame {
 
 	}
 
-	public void setUmidityValueFromLabel(int umidityValue) {
-		System.out.println("umiditate");
-		labelUmidityValue.setText(Integer.toString(umidityValue) + "%");
+	/**
+	 * Sets the Humidity with the value of the argument
+	 * 
+	 * @param humidityValue
+	 *            Humidity value
+	 */
+	public void setHumidityValueFromLabel(int humidityValue) {
+		labelHumidityValue.setText(Integer.toString(humidityValue) + "%");
 	}
 
+	/**
+	 * Sets the Wind with the value of the argument
+	 * 
+	 * @param windValue
+	 *            Wind value
+	 */
 	public void setWindValueFromLabel(int windValue) {
 		labelWindValue.setText(Integer.toString(windValue) + "km/h");
 	}
 
+	/**
+	 * Sets the Temperature with the value of the argument
+	 * 
+	 * @param temperatureValue
+	 *            Temperature value
+	 */
 	public void setTemperatureValueFromLabel(int temperatureValue) {
 		labelDegree.setText(Integer.toString(temperatureValue));
 	}
 
+	/**
+	 * Sets the Location with the value of the argument
+	 * 
+	 * @param location
+	 *            Location name
+	 */
 	public void setLocationValueFromLabel(String location) {
 		labelLocationValue.setText(location);
 	}
