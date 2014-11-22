@@ -3,6 +3,8 @@ package marocico.se.tema6.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import org.json.JSONException;
+
 import marocico.se.tema6.exception.FormatException;
 import marocico.se.tema6.model.ModelWeather;
 import marocico.se.tema6.view.ViewWeather;
@@ -46,19 +48,21 @@ public class ControllerWeather {
 		 */
 		public void actionPerformed(ActionEvent event) {
 
+			String location = mViewWeather.getLocationValueFromLabel();
+
+			try {
+				mModelWeather.setWeatherInfo(location);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
 			mViewWeather.setTemperatureValueFromLabel(mModelWeather
 					.getTemperatureValue());
+
 			mViewWeather.setHumidityValueFromLabel(mModelWeather
 					.getHumidityValue());
 
 			mViewWeather.setWindValueFromLabel(mModelWeather.getWindValue());
-
-			try {
-				mViewWeather.setLocationValueFromLabel(mModelWeather
-						.getLocation());
-			} catch (FormatException e) {
-				e.printStackTrace();
-			}
 
 		}
 	}
