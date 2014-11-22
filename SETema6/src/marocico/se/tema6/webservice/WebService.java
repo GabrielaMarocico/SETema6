@@ -50,6 +50,7 @@ public class WebService {
 
 		} catch (Throwable error) {
 			error.printStackTrace();
+			
 		} finally {
 			try {
 				inputStreamReader.close();

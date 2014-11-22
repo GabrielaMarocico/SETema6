@@ -30,7 +30,7 @@ public class ModelWeather {
 
 	WebService service = new WebService();
 
-	public void setHumidityValue(double humidity) throws JSONException {
+	public void setHumidityValue(double humidity) throws FormatException {
 		mHumidity = humidity;
 	}
 

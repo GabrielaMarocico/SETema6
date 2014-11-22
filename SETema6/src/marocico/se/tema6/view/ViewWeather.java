@@ -46,14 +46,14 @@ public class ViewWeather extends JFrame {
 		labelLocation.setFont(maxFont);
 		grid.gridx = 1;
 		grid.gridy = 0;
-		grid.insets = new Insets(-180, -760, 0, 0);
+		grid.insets = new Insets(-180, -910, 0, 0);
 		panel.add(labelLocation, grid);
 
 		fieldLocationValue.setFont(minFont);
 		fieldLocationValue.setHorizontalAlignment(JTextField.CENTER);
 		grid.gridx = 1;
 		grid.gridy = 0;
-		grid.insets = new Insets(-180, -265, 0, 0);
+		grid.insets = new Insets(-180, -415, 0, 0);
 		panel.add(fieldLocationValue, grid);
 
 		// labels for Temperature
