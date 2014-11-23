@@ -24,6 +24,5 @@ public class Main {
 
 		// Display the view
 		view.setVisible(true);
-
 	}
 }

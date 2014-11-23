@@ -8,7 +8,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class ViewWeather extends JFrame {
 
@@ -17,12 +22,13 @@ public class ViewWeather extends JFrame {
 
 	JLabel labelTemperature = new JLabel("Temperature");
 	JLabel labelDegree = new JLabel();
+	JLabel labelIconWeather = new JLabel();
 	JLabel degreeIcon = new JLabel();
 	JLabel labelWind = new JLabel("Wind");
 	JLabel labelWindValue = new JLabel();
 	JLabel labelHumidity = new JLabel("Humidity");
 	JLabel labelHumidityValue = new JLabel();
-	JLabel labelLocation = new JLabel("Your country :");
+	JLabel labelLocation = new JLabel("Your city :");
 	JTextField fieldLocationValue = new JTextField("", 15);
 	JButton buttonReset = new JButton("Reset");
 
@@ -83,6 +89,13 @@ public class ViewWeather extends JFrame {
 		degreeIcon = new JLabel(image);
 		panel.add(degreeIcon, grid);
 
+		// label for iconWeather
+		grid.gridx = 2;
+		grid.gridy = 0;
+		grid.insets = new Insets(125, -1200, 0, 0);
+
+		panel.add(labelIconWeather, grid);
+
 		// labels for Wind
 		labelWind.setFont(maxFont);
 		grid.gridx = 0;
@@ -122,6 +135,17 @@ public class ViewWeather extends JFrame {
 
 		this.add(panel);
 
+	}
+
+	/**
+	 * Sets the labelIconWeather with an image
+	 * 
+	 * @param bytesIconWeather
+	 *            number of bytes
+	 */
+	public void setIconWeather(byte[] bytesIconWeather) {
+		ImageIcon imageIcon = new ImageIcon(bytesIconWeather);
+		labelIconWeather.setIcon(imageIcon);
 	}
 
 	/**
